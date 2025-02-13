@@ -8,6 +8,10 @@ packages:
 # Enable logging
 logger:
 
+esphome:
+  platform: ESP8266
+  board: esp8285
+
 # Device Specific Config
 binary_sensor:
   - platform: gpio
