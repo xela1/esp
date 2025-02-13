@@ -1,8 +1,9 @@
 packages:
-    wifi: !include common/wifi.yaml
-    api: !include common/api.yaml
-    controls: !include common/controls.yaml
-    ota: !include common/ota.yaml
+  minimal: !include common/minimal.yaml
+  wifi: !include common/wifi.yaml
+  api: !include common/api.yaml
+  controls: !include common/controls.yaml
+  ota: !include common/ota.yaml
 
 # Enable logging
 logger:
