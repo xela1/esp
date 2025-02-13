@@ -1,0 +1,18 @@
+sensor:
+  - platform: wifi_signal
+    name: WiFi Signal dB
+    id: wifi_signal_db
+    update_interval: 60s
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+    ssid:
+      name: Connected SSID
+    mac_address:
+      name: MMAC Address
+
+button:
+  - platform: restart
+    name: "Restart"

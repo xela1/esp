@@ -1,0 +1,14 @@
+packages:
+    wifi: !include common/wifi.yaml
+    api: !include common/api.yaml
+    controls: !include common/controls.yaml
+
+# Enable logging
+logger:
+
+
+
+bluetooth_proxy:
+esp32_ble_tracker:
+    scan_parameters:
+      active: True
