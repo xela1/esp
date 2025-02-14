@@ -28,6 +28,8 @@ esp32:
 climate:
   - platform: cn105
     id: hp
+    name: None
+    icon: mdi:air-conditioner
     supports:
       mode: ["HEAT_COOL", "COOL", "HEAT", "FAN_ONLY"]
       fan_mode: ["AUTO","LOW", "MEDIUM","HIGH","MIDDLE","QUIET"]
@@ -44,3 +46,6 @@ climate:
       name: ${name} Vertical Vane
     horizontal_vane_select:
       name: ${name} Horizontal Vane
+    remote_temperature_timeout: 30min
+    debounce_delay : 500ms
+    update_interval: 2s
