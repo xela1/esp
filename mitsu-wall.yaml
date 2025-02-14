@@ -27,7 +27,7 @@ esp32:
 
 climate:
   - platform: cn105
-    id: hp
+    id: !extend hp
     name: None
     icon: mdi:air-conditioner
     supports:
