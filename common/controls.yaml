@@ -5,7 +5,6 @@ sensor:
     update_interval: 60s
   - platform: uptime
     name: Uptime
-  - platform: homeassistant
 
 text_sensor:
   - platform: wifi_info

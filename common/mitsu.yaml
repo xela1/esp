@@ -67,8 +67,8 @@ climate:
     debounce_delay : 500ms
     update_interval: 2s
 
-# Sensors with general information.
 sensor:
+  - platform: homeassistant
     name: "Temperature Sensor From Home Assistant"
     entity_id: ${remote_sensor}
     on_value:
