@@ -3,6 +3,9 @@ sensor:
     name: WiFi Signal dB
     id: wifi_signal_db
     update_interval: 60s
+  - platform: uptime
+    name: Uptime
+  - platform: homeassistant
 
 text_sensor:
   - platform: wifi_info
@@ -17,3 +20,6 @@ button:
   - platform: restart
     name: "Restart"
 
+time:
+  - platform: homeassistant
+    id: homeassistant_time
