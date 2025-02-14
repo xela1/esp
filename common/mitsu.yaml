@@ -1,0 +1,84 @@
+uart:
+ id: HP_UART
+ baud_rate: 2400
+ tx_pin: GPIO17
+ rx_pin: GPIO16
+
+# Enable logging
+logger:
+  hardware_uart: UART1
+  level: INFO
+  logs:
+    EVT_SETS : INFO
+    WIFI : INFO
+    MQTT : INFO
+    WRITE_SETTINGS : INFO
+    SETTINGS : INFO
+    STATUS : INFO
+    CN105Climate: WARN
+    CN105: INFO
+    climate: WARN
+    sensor: WARN
+    chkSum : INFO
+    WRITE : WARN
+    READ : WARN
+    Header: INFO
+    Decoder : INFO
+    CONTROL_WANTED_SETTINGS: INFO
+  
+# External component reference
+external_components:
+  - source: github://echavet/MitsubishiCN105ESPHome
+
+api:
+  reboot_timeout: 0s
+  services:
+    - service: set_remote_temperature
+      variables:
+        temperature: float
+      then:
+        - lambda: 'id(hp).set_remote_temperature(temperature);'
+    - service: use_internal_temperature
+      then:
+        - lambda: 'id(hp).set_remote_temperature(0);'
+
+# Enable Web server.
+web_server:
+  port: 80
+
+climate:
+  - platform: cn105
+    id: hp
+    name: None
+    icon: mdi:air-conditioner
+    supports:
+      mode: ["COOL", "HEAT", "FAN_ONLY"]
+      fan_mode: ["AUTO","LOW", "MEDIUM","MIDDLE","HIGH"]
+      swing_mode: []
+    visual:
+      min_temperature: 19
+      max_temperature: 30
+      temperature_step:
+        target_temperature: 1
+        current_temperature: 0.1
+    compressor_frequency_sensor:
+      name: Compressor Frequency
+    remote_temperature_timeout: 30min
+    debounce_delay : 500ms
+    update_interval: 2s
+
+    
+
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: Uptime
+  - platform: homeassistant
+    name: "Temperature Sensor From Home Assistant"
+    entity_id: ${remote_sensor}
+    on_value:
+      then:
+        - lambda: 'id(hp).set_remote_temperature(x);'
+    filters:
+      - heartbeat: 10s
