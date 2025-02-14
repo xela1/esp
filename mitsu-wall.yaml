@@ -33,7 +33,7 @@ climate:
     supports:
       mode: ["HEAT_COOL", "COOL", "HEAT", "FAN_ONLY"]
       fan_mode: ["AUTO","LOW", "MEDIUM","HIGH","MIDDLE","QUIET"]
-      swing_mode: ["OFF", "VERTICAL", "HORIZONTAL", "BOTH"]
+      swing_mode: ["OFF", "VERTICAL"]
     visual:
       min_temperature: 16
       max_temperature: 31
@@ -44,8 +44,6 @@ climate:
       name: Compressor Frequency
     vertical_vane_select:
       name: ${name} Vertical Vane
-    horizontal_vane_select:
-      name: ${name} Horizontal Vane
     remote_temperature_timeout: 30min
     debounce_delay : 500ms
     update_interval: 2s
