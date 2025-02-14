@@ -1,0 +1,4 @@
+bluetooth_proxy:
+esp32_ble_tracker:
+    scan_parameters:
+      active: True
