@@ -1,6 +1,10 @@
 packages:
-  minimal: !include common/minimal.yaml
   wifi: !include common/wifi.yaml
   api: !include common/api.yaml
   ota: !include common/ota.yaml
   localbytes.plug-pm: github://LocalBytes/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
+
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
