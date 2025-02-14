@@ -69,6 +69,7 @@ climate:
 
 sensor:
   - platform: homeassistant
+    id: remotetemp
     name: "Temperature Sensor From Home Assistant"
     entity_id: ${remote_sensor}
     on_value:
