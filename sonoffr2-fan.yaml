@@ -36,6 +36,7 @@ switch:
   # The relay switches on the red side of the LED when active.
   - platform: gpio
     name: $friendly_name
+    icon: mdi:fan
     pin: GPIO12
     id: relay
     on_turn_off:
