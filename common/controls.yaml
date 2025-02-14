@@ -3,6 +3,12 @@ sensor:
     name: WiFi Signal dB
     id: wifi_signal_db
     update_interval: 60s
+  - platform: template
+    name: $friendly_name ESP32 Internal Temp
+    device_class: temperature
+    unit_of_measurement: °C
+    id: esp32_temp
+    lambda: return temperatureRead();
 
 text_sensor:
   - platform: wifi_info
@@ -16,3 +22,4 @@ text_sensor:
 button:
   - platform: restart
     name: "Restart"
+

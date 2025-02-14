@@ -1,3 +1,7 @@
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
