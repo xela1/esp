@@ -1,0 +1,46 @@
+# substitutions:
+#   name: bedroom-ac # Do not use underscores, which are not fully compatible with mDNS
+#   friendly_name: Bedroom Air Conditioner
+#   remote_sensor: sensor.bedroom_sensor_air_temperature
+
+packages:
+  minimal: !include common/minimal.yaml
+  wifi: !include common/wifi.yaml
+  api: !include common/api.yaml
+  controls: !include common/controls.yaml
+  ota: !include common/ota.yaml
+  mitsu: !include common/mitsu.yaml
+  bp: !include common/bluetooth-proxy.yaml
+
+# Enable logging
+logger:
+
+esphome:
+  name: $name
+  friendly_name: ${friendly_name}
+
+# For ESP32 Devices
+esp32:
+ board: esp32doit-devkit-v1
+ framework:
+   type: esp-idf
+
+climate:
+  - platform: cn105
+    id: hp
+    supports:
+      mode: ["HEAT_COOL", "COOL", "HEAT", "FAN_ONLY"]
+      fan_mode: ["AUTO","LOW", "MEDIUM","HIGH","MIDDLE","QUIET"]
+      swing_mode: ["OFF", "VERTICAL", "HORIZONTAL", "BOTH"]
+    visual:
+      min_temperature: 16
+      max_temperature: 31
+      temperature_step:
+        target_temperature: 1
+        current_temperature: 0.1
+    compressor_frequency_sensor:
+      name: Compressor Frequency
+    vertical_vane_select:
+      name: ${name} Vertical Vane
+    horizontal_vane_select:
+      name: ${name} Horizontal Vane
