@@ -180,12 +180,6 @@ switch:
       - light.turn_on: switch_led
     interlock: [relay_off]
 
-text_sensor:
-  - platform: template
-    name: $friendly_name Uptime
-    id: uptime_human
-    icon: mdi:clock-start
-
 light:
   - platform: monochromatic
     id: switch_led
