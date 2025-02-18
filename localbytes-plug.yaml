@@ -1,8 +1,8 @@
 packages:
+  localbytes.plug-pm: github://LocalBytes/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
   wifi: !include common/wifi.yaml
   api: !include common/api.yaml
   ota: !include common/ota.yaml
-  localbytes.plug-pm: github://LocalBytes/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
 
 esphome:
   name: ${name}
