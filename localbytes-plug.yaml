@@ -10,10 +10,6 @@ esphome:
   friendly_name: ${friendly_name}
 
 sensor:
-  - platform: wifi_signal
-    name: WiFi Signal dB
-    id: wifi_signal_db
-    update_interval: 60s
   - platform: uptime
     name: Uptime
 
