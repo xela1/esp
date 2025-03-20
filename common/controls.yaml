@@ -14,6 +14,8 @@ text_sensor:
       name: Connected SSID
     mac_address:
       name: MAC Address
+    bssid:
+      name: Connected BSSID
 
 button:
   - platform: restart
