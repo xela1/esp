@@ -10,7 +10,7 @@ packages:
   controls: !include common/controls.yaml
   ota: !include common/ota.yaml
   mitsu: !include common/mitsu.yaml
-  bp: !include common/bluetooth-proxy.yaml
+  bp: !include common/ble-tracker.yaml
 
 # Enable logging
 logger:
