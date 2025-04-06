@@ -1,0 +1,30 @@
+# substitutions:
+#   name: bedroom-ac # Do not use underscores, which are not fully compatible with mDNS
+#   friendly_name: Bedroom Air Conditioner
+#   remote_sensor: sensor.bedroom_sensor_air_temperature
+
+packages:
+  minimal: !include common/minimal.yaml
+  wifi: !include common/wifi.yaml
+  api: !include common/api.yaml
+  controls: !include common/controls.yaml
+  ota: !include common/ota.yaml
+
+# Enable logging
+logger:
+
+esphome:
+  name: $name
+  friendly_name: ${friendly_name}
+  platform: ESP8266
+  board: d1_mini
+
+  binary_sensor:
+  - platform: gpio
+    pin: D2
+    name: "Microwave Sensor 1"
+    id: microwave_sensor_1
+    device_class: motion
+    filters:
+      - delayed_off: 10s # wait for 10 seconds without motion to send OFF. 
+      # Play with this value, to find the right balance. For bed/bathroom or office it can be much higher compare to a walk through hallway. 
