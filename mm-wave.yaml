@@ -16,15 +16,16 @@ logger:
 esphome:
   name: $name
   friendly_name: ${friendly_name}
-  platform: ESP8266
+
+esp8266:
   board: d1_mini
 
-  binary_sensor:
-  - platform: gpio
-    pin: D2
-    name: "Microwave Sensor 1"
-    id: microwave_sensor_1
-    device_class: motion
-    filters:
-      - delayed_off: 10s # wait for 10 seconds without motion to send OFF. 
-      # Play with this value, to find the right balance. For bed/bathroom or office it can be much higher compare to a walk through hallway. 
+binary_sensor:
+- platform: gpio
+  pin: D2
+  name: "Microwave Sensor 1"
+  id: microwave_sensor_1
+  device_class: motion
+  filters:
+    - delayed_off: 10s # wait for 10 seconds without motion to send OFF. 
+    # Play with this value, to find the right balance. For bed/bathroom or office it can be much higher compare to a walk through hallway. 
