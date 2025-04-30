@@ -59,7 +59,7 @@ climate:
       min_temperature: 19
       max_temperature: 30
       temperature_step:
-        target_temperature: 1
+        target_temperature: 0.5
         current_temperature: 0.1
     compressor_frequency_sensor:
       name: Compressor Frequency
